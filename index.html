@@ -40,11 +40,12 @@
 
         <div>
             <label for="guess-input">Guess:</label>
-            <input type="number" id="guess-input" min="1" max="10" placeholder="Enter your guess">
+            <input type="number" id="guess-value" min="1" max="10" placeholder="Enter your guess">
         </div>
 
         <div>
             <button id="guess-button">Submit Guess</button>
+            <button id="reset-button">Reset</button>
         </div>
 
         <div>
@@ -55,15 +56,35 @@
 
     <script>
         // JavaScript code goes here   
-
-
+        var attempts = 3;
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+        }
+        value = getRandomInt(10);
+        
         // Added a click listener to the button (will be covered more in zyBook 7.4), 
         // for now just use the following which:
         // uses the document object and selects the element with a matching Id found in the DOM.
         // adds an event listener (for a click) of that selected element.
         // executes the code in the body of the anonymous function
-        document.getElementById('guess-button').addEventListener('click', function () {
+        let button = document.getElementById('guess-button');
+        
+        button.addEventListener('click', function () {
             //function body -- any code here will be executed when the registered event is triggered.
+            
+            
+            let element = document.getElementById("guess-value");
+            alert(element.value)
+            if(value == element.value) {
+                document.getElementById("message").textContent = "Congratulations! You guessed it in " + attempts + " attempts!";
+            }
+
+            attempts = attempts - 1;
+            
+            
+          
+            
+           
         });
 
     </script>
