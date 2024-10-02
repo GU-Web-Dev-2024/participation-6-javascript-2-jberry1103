@@ -77,8 +77,13 @@
             alert(element.value)
             if(value == element.value) {
                 document.getElementById("message").textContent = "Congratulations! You guessed it in " + attempts + " attempts!";
+              
             }
 
+            if(value < element.value) {
+                document.getElementById("message").textContent = "Your guess is greater than the value.  You have " + attempts + " attempts!";
+                
+            }
             attempts = attempts - 1;
             
             
